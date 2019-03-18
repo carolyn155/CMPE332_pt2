@@ -1,6 +1,8 @@
+use conferencedb;
+
 delete from Attendees;
 delete from SponsorLevels;
-delete from StudentAttendees;
+-- delete from StudentAttendees;
 -- delete from SpeakerAttendees;
 delete from ProfessionalAttendees;
 delete from Sponsors;
@@ -33,8 +35,14 @@ insert into Sponsors values ('BuzzFeed Unsolved', 'Gold', 'Video Producer', '2')
 insert into ScheduleInformation values ('QGIC', '22', '10:00:00', '11:00:00', '9');
 insert into ScheduleInformation values ('Ghosts', '24', '11:00:00', '12:00:00', '13');
 insert into OrganizingCommittee values ('Setup','Tom Brady');
+insert into OrganizingCommittee values ('Logistics','Charlie Chaplin');
+insert into OrganizingCommittee values ('Speakers','Barack Obama');
 insert into OrganizingCommittee values ('Takedown', 'Ryan Bergara');
 insert into CommitteeMember values ('Tom', 'Brady', 'Setup', '1');
-insert into CommitteeMember values ('Ryan', 'Bergara', 'Takedown, Setup', '2');
+insert into CommitteeMember values ('Ryan', 'Bergara', 'Takedown', '1');
+insert into CommitteeMember values ('Barack', 'Obama', 'Speakers', '1');
+insert into CommitteeMember values ('Charlie', 'Chaplin', 'Logistics', '1');
+ 
+-- insert into CommitteeMember values ('Ryan', 'Bergara', 'Setup', '2');
 
 

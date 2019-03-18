@@ -12,16 +12,15 @@
 <?php
 $givenName = $_POST["firstname"];                      
 $surname = $_POST["lastname"];
-$committee = $_POST["subcommittee"];
+$committee = $_POST["subcommitteename"];
 echo "<h3>You have selected the $committee sub-committee.</h3>";
-echo "<p>Here is a list of all the names of the committee members!</p>";
+echo "<p>Here is a list of all the names of the committee members:</p>";
 echo "<br>";
 echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-
-$sql = "select name, salary from instructor where dept_name = ?";
+$sql = "select firstname, lastname from committeemember where subcommitteename = ?";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$committee]);   #bind the parameters
 
