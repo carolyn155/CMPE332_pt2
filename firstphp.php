@@ -10,8 +10,6 @@
 
 
 <?php
-$givenName = $_POST["firstname"];                      
-$surname = $_POST["lastname"];
 $committee = $_POST["subcommitteename"];
 echo "<h3>You have selected the $committee sub-committee.</h3>";
 echo "<p>Here is a list of all the names of the committee members:</p>";
