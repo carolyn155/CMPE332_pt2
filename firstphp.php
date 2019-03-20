@@ -18,17 +18,17 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select firstname, lastname from committeemember where subcommitteename = ?";
+$sql = "select FirstName, LastName from CommitteeMember where SubCommitteeName = ?";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$committee]);   #bind the parameters
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
 while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["firstname"]."</td><td>".$row["lastname"]."</td></tr>";
+	echo "<tr><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td></tr>";
 }
 
 ?>
 </table>
 </body>
-</html> 
+</html>
