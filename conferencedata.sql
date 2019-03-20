@@ -13,9 +13,9 @@ delete from ScheduleInformation;
 delete from OrganizingCommittee;
 delete from CommitteeMember;
 
-insert into SponsorLevels values ('Gold', '5000.0', '2' );
-insert into SponsorLevels values ('Silver', '3000.0', '1');
-insert into SponsorLevels values ('Platinum', '10000.0', '3');
+insert into SponsorLevels values ('Gold', '5000.0', '4' );
+insert into SponsorLevels values ('Silver', '3000.0', '3');
+insert into SponsorLevels values ('Platinum', '10000.0', '5');
 insert into SponsorLevels values ('Bronze', '1000.0', '0');
 
 insert into AttendeeTypes values ('Student', '50.0');
@@ -48,8 +48,14 @@ insert into SpeakerAttendees values ('22', 'Ted', 'Munn', 'QGIC');
 insert into SpeakerAttendees values ('24', 'Teej', 'Camera', 'Ghosts');
 
 insert into JobPostings values ('Buzzfeed Unsolved', 'Video Producer', '20000', 'Los Angeles', 'California');
+insert into JobPostings values ('Netflix', 'Senior Developer', '100000', 'San Francisco', 'California');
+insert into JobPostings values ('Uber', 'CEO', '2000000', 'New York City', 'New York');
+insert into JobPostings values ('Amazon', 'Human Resources', '50000', 'Toronto', 'Ontario');
 
 insert into Sponsors values ('BuzzFeed Unsolved', 'Gold', 'Video Producer', '2');
+insert into Sponsors values ('Netflix', 'Silver', 'Senior Developer', '3');
+insert into Sponsors values ('Uber', 'Platinum', 'CEO', '5');
+insert into Sponsors values ('Amazon', 'Bronze', 'Human Resources', '0');
 
 insert into ScheduleInformation values ('QGIC', '22', '10:00:00', '11:00:00', '9');
 insert into ScheduleInformation values ('Ghosts', '24', '11:00:00', '12:00:00', '13');
@@ -63,9 +69,7 @@ insert into CommitteeMember values ('Tom', 'Brady', 'Setup', '1');
 insert into CommitteeMember values ('Ryan', 'Bergara', 'Takedown', '1');
 insert into CommitteeMember values ('Barack', 'Obama', 'Speakers', '1');
 insert into CommitteeMember values ('Charlie', 'Chaplin', 'Logistics', '1');
- 
 -- insert into CommitteeMember values ('Ryan', 'Bergara', 'Setup', '2');
-
 
 -- to update the room capacity from the number of students staying in one room show in StudentAttendees
 update RoomingArrangements 
