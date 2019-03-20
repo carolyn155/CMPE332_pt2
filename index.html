@@ -57,9 +57,13 @@
 
 <h3>Query 7: Conference Attendees</h3>
 <p>Show the list of conference attendees as 3 lists: students, professionals, sponsors.</p>
-<h4>Students</h4> 
-<h4>Professionals</h4> 
-<h4>Sponsors</h4> 
+<form action="./secondphp.php" method="post">
+    <input list="roomnums" name="roomnumber">
+    <datalist id="roomnums">
+        <option value="2">
+    </datalist> 
+    <input type="submit">
+    </form>
 <br>
 
 <h3>Query 8: Add Attendee</h3>
