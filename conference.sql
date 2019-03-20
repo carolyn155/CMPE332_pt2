@@ -23,11 +23,12 @@ CREATE TABLE Attendees (
 
 -- students may decided to stay in a room 
 CREATE TABLE RoomingArrangements (
-    StudentNames varchar(20), -- multi value
+    -- StudentID int NOT NULL, -- multi value
     RoomNumber int NOT NULL, -- PK
-    RoomCapacity int NOT NULL,
-    NumberOfBeds int NOT NULL,
+    RoomCapacity int, -- 1 to 3 
+    NumberOfBeds int NOT NULL, -- 1 or 2 
     PRIMARY KEY (RoomNumber)
+   -- FOREIGN KEY (StudentID) REFERENCES ATTENDEES(ID) ON DELETE CASCADE
 );
 
 -- attendees that are students 
