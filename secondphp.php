@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Hotel Room</h2>
+<h2>Query 2: Hotel Room</h2>
 
 
 <?php

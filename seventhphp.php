@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Conference Attendees</h2>
+<h2>Query 7: Conference Attendees</h2>
 
 
 <?php
