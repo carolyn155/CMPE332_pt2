@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Sub-Committee Members</h2>
+<h2>Conference Attendees</h2>
 
 
 <?php
@@ -68,5 +68,11 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
+<br>
+<br> 
+<button onclick="window.location.href = './index.html';">Back to home</button>
+<br>
+<br><br>
+<br>
 </body>
 </html>

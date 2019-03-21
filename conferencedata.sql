@@ -26,12 +26,21 @@ insert into AttendeeTypes values ('Sponsor', '0.0');
 insert into Attendees values ('20', 'Cache', 'Angus', 'Student');
 insert into Attendees values ('21', 'Carolyn', 'Day', 'Professional');
 insert into Attendees values ('22', 'Ted', 'Munn', 'Speaker');
-insert into Attendees values ('23', 'Shane', 'Madej', 'Sponsor');
+insert into Attendees values ('23', 'Lisa', 'Kudrow', 'Sponsor');
 insert into Attendees values('24', 'Teej', 'Camera', 'Speaker');
 insert into Attendees values ('25', 'Miley', 'Cyrus', 'Student');
 insert into Attendees values ('26', 'Justin', 'Timberlake', 'Student');
 insert into Attendees values ('27', 'Kanye', 'West', 'Student');
 insert into Attendees values ('28', 'Kimberley', 'Kardashian', 'Student');
+insert into Attendees values ('29', 'Chris', 'Martin', 'Professional');
+insert into Attendees values ('30', 'Shia', 'LaBeouf', 'Professional');
+insert into Attendees values ('31', 'Rick', 'Astley', 'Professional');
+insert into Attendees values ('32', 'George', 'Michael', 'Professional');
+insert into Attendees values ('33', 'Courtney', 'Cox', 'Sponsor');
+insert into Attendees values ('34', 'David', 'Schwimmer', 'Sponsor');
+insert into Attendees values ('35', 'Jennifer', 'Aniston', 'Sponsor');
+insert into Attendees values ('36', 'Matthew', 'Perry', 'Sponsor');
+insert into Attendees values ('37', 'Matt', 'LeBlanc', 'Sponsor');
 
 insert into RoomingArrangements values ('2', '', '2');
 insert into RoomingArrangements values ('3', '', '1');
@@ -43,6 +52,10 @@ insert into StudentAttendees values ('27', 'Kanye', 'West', '3');
 insert into StudentAttendees values ('28', 'Kimberley', 'Kardashian', '3');
 
 insert into ProfessionalAttendees values ('21', 'Carolyn', 'Day', 'Computers');
+insert into ProfessionalAttendees values ('29', 'Chris', 'Martin', 'Entertainment');
+insert into ProfessionalAttendees values ('30', 'Shia', 'LaBeouf', 'Actor');
+insert into ProfessionalAttendees values ('31', 'Rick', 'Astley', 'CEO');
+insert into ProfessionalAttendees values ('32', 'George', 'Michael', 'World Leader');
 
 insert into SpeakerAttendees values ('22', 'Ted', 'Munn', 'QGIC');
 insert into SpeakerAttendees values ('24', 'Teej', 'Camera', 'Ghosts');

@@ -10,7 +10,7 @@
 
 
 <?php
-$committee = $_POST["subcommitteename"];
+$committee = $_POST["SubCommitteeName"];
 echo "<h3>You have selected the $committee sub-committee.</h3>";
 echo "<p>Here is a list of all the names of the committee members:</p>";
 echo "<br>";
@@ -30,5 +30,8 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
+<br>
+<br> 
+<button onclick="window.location.href = './index.html';">Back to home</button>
 </body>
 </html>
