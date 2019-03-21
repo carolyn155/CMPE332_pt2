@@ -70,19 +70,25 @@ insert into Sponsors values ('Netflix', 'Silver', 'Senior Developer', '3');
 insert into Sponsors values ('Uber', 'Platinum', 'CEO', '5');
 insert into Sponsors values ('Amazon', 'Bronze', 'Human Resources', '0');
 
-insert into ScheduleInformation values ('QGIC', '22', '10:00:00', '11:00:00', '9');
-insert into ScheduleInformation values ('Ghosts', '24', '11:00:00', '12:00:00', '13');
+insert into ScheduleInformation values ('QGIC', '22', '10:00:00', '11:00:00', '9', '2020-12-24');
+insert into ScheduleInformation values ('Ghosts', '24', '11:00:00', '12:00:00', '13', '2020-12-25');
 
-insert into OrganizingCommittee values ('Setup','Tom Brady');
-insert into OrganizingCommittee values ('Logistics','Charlie Chaplin');
-insert into OrganizingCommittee values ('Speakers','Barack Obama');
-insert into OrganizingCommittee values ('Takedown', 'Ryan Bergara');
+insert into OrganizingCommittee values ('Setup','Tom', 'Brady');
+insert into OrganizingCommittee values ('Logistics','Charlie', 'Chaplin');
+insert into OrganizingCommittee values ('Speakers','Barack', 'Obama');
+insert into OrganizingCommittee values ('Takedown', 'Ryan', 'Bergara');
 
-insert into CommitteeMember values ('Tom', 'Brady', 'Setup', '1');
-insert into CommitteeMember values ('Ryan', 'Bergara', 'Takedown', '1');
-insert into CommitteeMember values ('Barack', 'Obama', 'Speakers', '1');
-insert into CommitteeMember values ('Charlie', 'Chaplin', 'Logistics', '1');
--- insert into CommitteeMember values ('Ryan', 'Bergara', 'Setup', '2');
+insert into CommitteeMember values ('1', 'Tom', 'Brady', '');
+insert into CommitteeMember values ('2', 'Ryan', 'Bergara', '');
+insert into CommitteeMember values ('3', 'Barack', 'Obama', '');
+insert into CommitteeMember values ('4', 'Charlie', 'Chaplin', '');
+
+insert into OnCommittee values ('1', 'Setup');
+insert into OnCommittee values ('2', 'Takedown');
+insert into OnCommittee values ('2', 'Setup');
+insert into OnCommittee values ('3', 'Speakers');
+insert into OnCommittee values ('4', 'Logistics');
+
 
 -- to update the room capacity from the number of students staying in one room show in StudentAttendees
 update RoomingArrangements 
@@ -91,3 +97,9 @@ set RoomingArrangements.RoomCapacity = (select count(ID) roomcap
                                         where StudentAttendees.RoomNumber = RoomingArrangements.RoomNumber 
                                         group by RoomNumber);
 
+-- to update the number of committees an individual committee member is apart of 
+update CommitteeMember
+set CommitteeMember.NumberOfCommittees = (select count(MemberID) num
+                                        from OnCommittee
+                                        where CommitteeMember.MemberID = OnCommittee.MemberID
+                                        group by MemberID);
