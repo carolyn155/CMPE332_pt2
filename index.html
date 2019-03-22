@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="style.css" type="text/css" rel="stylesheet" >
+<link href="./style.css" type="text/css" rel="stylesheet" >
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
@@ -9,6 +9,7 @@
 <body>
 <h1>CMPE 332 Assignment</h1>
 <h2>Conference Organization</h2>
+<h3>By: Carolyn Day, Cache Angus & Ted Munn</h3>
 <p>Hello there! Welcome to the conference database!</p>
 <p>Please find the conference data below.</p>
 <br>
@@ -17,13 +18,13 @@
 <h3>Query 1: Sub-Committee Members</h3>
 <p>Display all members of an organizing sub-committee.</p>
 <form action="./firstphp.php" method="post">
-<input list="subcommittee" name="subcommitteename">
+<input list="subcommittee" name="SubCommitteeName">
 <datalist id="subcommittee">
     <option value="Setup">
     <option value="Takedown">
     <option value="Logistics">
     <option value="Speakers">
-</datalist> 
+</datalist>
 <input type="submit">
 </form>
 <br>
@@ -31,10 +32,11 @@
 <h3>Query 2: Hotel Room</h3>
 <p>List all of the students housed in the selected room.</p>
 <form action="./secondphp.php" method="post">
-<input list="roomnums" name="roomnumber">
+<input list="roomnums" name="RoomNumber">
 <datalist id="roomnums">
     <option value="2">
-</datalist> 
+    <option value="3">
+</datalist>
 <input type="submit">
 </form>
 <br>
@@ -45,7 +47,9 @@
 
 <h3>Query 4: Sponsors</h3>
 <p>List all the sponsors and their level of sponsorship.</p>
+<a href="./fourthphp.php">Click Me for Query 4</a>
 <br>
+<br> 
 
 <h3>Query 5: Jobs Availible by Company</h3>
 <p>For a particular company, list the jobs that they have availible.</p>
@@ -57,9 +61,8 @@
 
 <h3>Query 7: Conference Attendees</h3>
 <p>Show the list of conference attendees as 3 lists: students, professionals, sponsors.</p>
-<h4>Students</h4> 
-<h4>Professionals</h4> 
-<h4>Sponsors</h4> 
+<a href="./seventhphp.php">Click Me for Query 7</a>
+<br>
 <br>
 
 <h3>Query 8: Add Attendee</h3>
@@ -86,4 +89,4 @@
 
 
 </body>
-</html> 
+</html>

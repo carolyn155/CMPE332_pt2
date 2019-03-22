@@ -23,11 +23,12 @@ CREATE TABLE Attendees (
 
 -- students may decided to stay in a room 
 CREATE TABLE RoomingArrangements (
-    StudentNames varchar(20), -- multi value
+    -- StudentID int NOT NULL, -- multi value
     RoomNumber int NOT NULL, -- PK
-    RoomCapacity int NOT NULL,
-    NumberOfBeds int NOT NULL,
+    RoomCapacity int, -- 1 to 3 
+    NumberOfBeds int NOT NULL, -- 1 or 2 
     PRIMARY KEY (RoomNumber)
+   -- FOREIGN KEY (StudentID) REFERENCES ATTENDEES(ID) ON DELETE CASCADE
 );
 
 -- attendees that are students 
@@ -103,9 +104,10 @@ CREATE TABLE Sponsors (
 CREATE TABLE ScheduleInformation (
     SessionName varchar(20) NOT NULL,
     SpeakerID int NOT NULL, -- muti values 
-    StartTime time(4),
-    EndTime time(4),
+    StartTime time,
+    EndTime time,
     RoomLocation varchar(20), 
+    SessionDay date, 
     PRIMARY KEY (StartTime, RoomLocation),
     FOREIGN KEY (SpeakerID) REFERENCES Attendees (ID) ON DELETE CASCADE
 );
@@ -118,16 +120,25 @@ CREATE TABLE ScheduleInformation (
 -- );
 
 CREATE TABLE OrganizingCommittee (
-    SubCommitteeName varchar(20),
-    Chair varchar(20),
+    SubCommitteeName varchar(20) NOT NULL,
+    ChairFirstName varchar(20),
+    ChairLastName varchar(20),
     PRIMARY KEY (SubCommitteeName)
 );
 
+
+-- switch order of committees and member table
 CREATE TABLE CommitteeMember (
+    MemberID int NOT NULL, 
     FirstName varchar(20) NOT NULL,
     LastName varchar(20) NOT NULL,
-    SubCommitteeName varchar(20), -- multiple entries 
     NumberOfCommittees int, -- derived from subcommittee name 
-    PRIMARY KEY (FirstName, LastName),
-    FOREIGN KEY (SubCommitteeName) REFERENCES OrganizingCommittee(SubCommitteeName)
+    PRIMARY KEY (MemberID)
+);
+
+CREATE TABLE OnCommittee (
+    MemberID int NOT NULL, 
+    SubCommitteeName varchar(20), -- multiple entries 
+    FOREIGN KEY (SubCommitteeName) REFERENCES OrganizingCommittee(SubCommitteeName),
+    FOREIGN KEY (MemberID) REFERENCES CommitteeMember(MemberID)
 );
