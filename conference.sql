@@ -87,7 +87,7 @@ CREATE TABLE Sponsors (
     EmailsSent int, -- derived from job postings to keep track of number of emails sent
     PRIMARY KEY (CompanyName),
     FOREIGN KEY (JobPosting) REFERENCES JobPostings(JobTitle),
-    FOREIGN KEY (SponsorLevel) REFERENCES SponsorLevels(SponsorLevel)
+    FOREIGN KEY (SponsorLevel) REFERENCES SponsorLevels(SponsorLevel) on delete cascade
 );
 -- I don't think we need this bc we have the Sponsors already attached as an attendee type
 -- CREATE TABLE SponsorAttendees (
