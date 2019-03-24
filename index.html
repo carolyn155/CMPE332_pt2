@@ -43,13 +43,21 @@
 
 <h3>Query 3: Conference Schedule</h3>
 <p>Display the conference schedule for a particular day.</p>
+<form action="./thirdphp.php" method="post">
+<input list="conferencedays" name="SessionDay">
+<datalist id="conferencedays">
+    <option value="2020-12-24">
+    <option value="2020-12-25">
+</datalist>
+<input type="submit">
+</form>
 <br>
 
 <h3>Query 4: Sponsors</h3>
 <p>List all the sponsors and their level of sponsorship.</p>
 <a href="./fourthphp.php">Click Me for Query 4</a>
 <br>
-<br> 
+<br>
 
 <h3>Query 5: Jobs Availible by Company</h3>
 <p>For a particular company, list the jobs that they have availible.</p>
@@ -57,6 +65,7 @@
 
 <h3>Query 6: All Jobs Availible</h3>
 <p>List all jobs availible.</p>
+<a href="./sixthphp.php">Click Me for Query 6</a>
 <br>
 
 <h3>Query 7: Conference Attendees</h3>
