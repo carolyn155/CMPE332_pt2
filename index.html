@@ -53,6 +53,13 @@
 
 <h3>Query 5: Jobs Availible by Company</h3>
 <p>For a particular company, list the jobs that they have availible.</p>
+<form action="./fifthphp.php" method="post">
+<input list="job" name="CompanyName">
+<datalist id="job">
+    <option value="Buzzfeed Unsolved">
+</datalist>
+<input type="submit">
+</form>
 <br>
 
 <h3>Query 6: All Jobs Availible</h3>
@@ -81,7 +88,13 @@
 
 <h3>Query 11: Delete Sponsoring Company</h3>
 <p>Delete a sponsoring comany and its associated attendees.</p>
-<br>
+<form action='./eleventhphp.php' method='post'>
+    <input list='sponsors' name="Sponsor">
+    <datalist id='sponsors'>
+        <option value="Buzzfeed Unsolved">
+    </datalist>
+    <input type="submit">
+</form>
 
 <h3>Query 12: Switch Session Information</h3>
 <p>Switch a session's day/time and/or location.</p>

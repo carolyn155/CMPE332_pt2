@@ -6,12 +6,12 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Sub-Committee Members</h2>
+<h2>Delete Sponsors</h2>
 
 <!--delete a sponsoring company and it's associated attendees-->
 
 <?php
-$sponsor = $_POST["companyname"];
+$sponsor = $_POST["Sponsor"];
 echo "<h3>You have selected the $sponsor to be deleted.</h3>";
 
 

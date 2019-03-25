@@ -8,6 +8,7 @@
 <body>
 <h2>Sub-Committee Members</h2>
 
+<!--switch a session's day/time and/or location.-->
 
 <?php
 $committee = $_POST["subcommitteename"];
