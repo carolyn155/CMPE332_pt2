@@ -18,7 +18,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select FirstName, LastName from CommitteeMember where SubCommitteeName = ?";
+$sql = "select FirstName, LastName from CommitteeMember, OnCommittee where CommitteeMember.MemberID = OnCommittee.MemberID and OnCommittee.SubCommitteeName = ?";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$committee]);   #bind the parameters
 
