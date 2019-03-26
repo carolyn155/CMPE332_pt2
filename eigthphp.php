@@ -63,6 +63,24 @@ while ($row = $stmt->fetch()) {
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
 
+
+
+$sql = "update RoomingArrangements 
+set RoomingArrangements.RoomCapacity = (select count(ID)
+                                        from StudentAttendees 
+                                        where StudentAttendees.RoomNumber = RoomingArrangements.RoomNumber 
+                                        group by RoomNumber)";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([$ID]);   #bind the parameters
+
+$sql = "update RoomingArrangements 
+set RoomCapacity = 0
+where isnull(RoomCapacity)";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([$ID]);   #bind the parameters
+
+
+
 }
 
 ?>
