@@ -10,21 +10,38 @@
 
 <!-- beginning of stuff -->
 <?php
-echo "<h3>You have asked to add a new attendee.</h3>";
-echo "<p>Here lists the details available jobs.</p>";
+$Type = $_POST["AttendeeType"];
+$Fname = $_POST["FirstName"];
+$Lname = $_POST["LastName"];
+$ID = $_POST["ID"];
+
+if ($Type = 'Student' OR $Type = 'student'){
+
+echo "<h3>You have asked to add a new student attendee.</h3>";
+echo "<p>Here lists the students and their information.</p>";
 echo "<br>";
-echo "<table><tr><th>Company Name</th><th>Job Title</th><th>Pay Rate Per Year</th><th>City</th><th>Province</th></tr>";
+echo "<table><tr><th>Identification</th><th>First name</th><th>Last name</th><th>Attendee type</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select CompanyName, JobTitle, PayRatePerYear, City, Province from JobPostings ";
+$sql = "INSERT INTO Attendees (ID, FirstName,LastName,AttendeeType) VALUES ($ID, $Fname, $Lname, $Type)";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute();   #bind the parameters
+
+// $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
+// $sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'student'";
+// $stmt = $pdo->prepare($sql);   #create the query
+// $stmt->execute();   #bind the parameters
+
+$sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'student'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
 while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["CompanyName"]."</td><td>".$row["JobTitle"]."</td><td>".$row["PayRatePerYear"]."</td><td>".$row["City"]."</td><td>".$row["Province"]."</td></tr>";
+	echo "<tr><td>".$row["ID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["AttendeeType"]."</td></tr>";
+}
 }
 # end of stuff
 
