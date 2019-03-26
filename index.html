@@ -133,11 +133,40 @@
 <h3>Query 12: Switch Session Information</h3>
 <p>Switch a session's day/time and/or location.</p>
 <form action='./twelthphp.php' method='post'>
+    <row>
+<p>Session Name</p>
 <input list="sessions" name='SessionName'>
 <datalist id='sessions'>
         <option value="QGIC">
         <option value="Ghosts">
 </datalist>
+</row>
+<row>
+<col>
+<br/>
+<p>Start Time</p>
+<input  type="text" name="StartTime">
+<br/>
+</col>
+<col>
+<p>End Time</p>
+<input type="text" name="EndTime">
+<br/>
+</col>
+</row> 
+<row>
+<p>Room Location</p>
+<input list='room' name='RoomLocation'>
+<datalist id="room">
+    <option value="8">
+    <option value='9'>
+    <option value='10'>
+    <option value='11'>
+    <option value='12'>
+    <option value='13'>
+</datalist>
+</br>
+</row>
 <input type="submit">
 </form>
 <br>
