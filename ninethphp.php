@@ -7,22 +7,24 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Sub-Committee Members</h2>
+<h2>Conference Intake</h2>
 
 <!--show the total intake of the conference broken -->
 <!--down by total registration amounts and total sponsorship amounts.-->
 <?php
-$committee = $_POST["subcommitteename"];
-echo "<h3>You have selected the $committee sub-committee.</h3>";
-echo "<p>Here is a list of all the names of the committee members:</p>";
+
+
+echo "<p>Here is the conference intake:</p>";
 echo "<br>";
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+echo "<table><tr><th>Registration</th><th>Sponsorship</th></tr>";
+
+#(SELECT E.FName, E.LName ,null AS SupeFName, null AS SupeLName from employee as E where E.SuperSSN is null) union (select L.FName, L.LName, S.FName, S.LName from employee as L, employee as S where L.SuperSSN = S.SSN);
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select firstname, lastname from committeemember where subcommitteename = ?";
+$sql = "select (b.attendancecost), (c.financialsupport) from attendees as a, attendeetypes as b, sponsorlevels as c, sponsors as k where a.attendeetype = b. attendeetype and k.sponsorlevel = c.sponsorlevel";
 $stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([$committee]);   #bind the parameters
+$stmt->execute([]);   #bind the parameters
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.

@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Sub-Committee Members</h2>
+<h2>Jobs By Company</h2>
 
 
 <?php
-$company = $_POST["companyname"];
+$company = $_POST["CompanyName"];
 echo "<h3>You have selected $company.</h3>";
 echo "<p>Here is a list of all the available jobs:</p>";
 echo "<br>";
@@ -30,5 +30,8 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
+<br>
+<br>
+<button onclick="window.location.href = './index.html';">Back to home</button>
 </body>
 </html> 
