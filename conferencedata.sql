@@ -79,6 +79,12 @@ insert into OrganizingCommittee values ('Logistics','Charlie', 'Chaplin');
 insert into OrganizingCommittee values ('Speakers','Barack', 'Obama');
 insert into OrganizingCommittee values ('Takedown', 'Ryan', 'Bergara');
 
+-- insert into CommitteeMember values ('1', 'Tom', 'Brady');
+-- insert into CommitteeMember values ('2', 'Ryan', 'Bergara');
+-- insert into CommitteeMember values ('3', 'Barack', 'Obama');
+-- insert into CommitteeMember values ('4', 'Charlie', 'Chaplin');
+
+
 insert into CommitteeMember values ('1', 'Tom', 'Brady', '');
 insert into CommitteeMember values ('2', 'Ryan', 'Bergara', '');
 insert into CommitteeMember values ('3', 'Barack', 'Obama', '');
@@ -99,8 +105,11 @@ set RoomingArrangements.RoomCapacity = (select count(ID) roomcap
                                         group by RoomNumber);
 
 -- to update the number of committees an individual committee member is apart of 
-update CommitteeMember
+-- update CommitteeMember
 set CommitteeMember.NumberOfCommittees = (select count(MemberID) num
                                         from OnCommittee
                                         where CommitteeMember.MemberID = OnCommittee.MemberID
                                         group by MemberID);
+
+
+
