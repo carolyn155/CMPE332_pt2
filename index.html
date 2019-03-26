@@ -121,7 +121,13 @@
 <p>Last Name:</p>
 <input type="Last name" name="LastName">
 <p>Attendee Type:</p>
-<input type="Attendee type" name="AttendeeType">
+<input list='type'  name="AttendeeType">
+<datalist id="type">
+    <option value='Student'>
+    <option value='Speaker'>
+    <option value='Sponsor'>
+    <option value='Professional'>
+</datalist>
 <input type="submit">
 </form>
 <br>

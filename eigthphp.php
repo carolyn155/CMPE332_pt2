@@ -18,9 +18,9 @@ $ID = $_POST["ID"];
 
 
 echo "<h3>You have asked to add a new attendee.</h3>";
-echo "<p>Here lists the non student attendees and their information.</p>";
+echo "<p>Here lists all the attendees and their information, including the added attendee.</p>";
 echo "<br>";
-echo "<table><tr><th>Identification</th><th>First name</th><th>Last name</th><th>Attendee type</th></tr>";
+echo "<table><tr><th>Identification</th><th>First Name</th><th>Last Name</th><th>Attendee Type</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
@@ -49,7 +49,7 @@ while ($row = $stmt->fetch()) {
 
  if ($Type == 'Student' OR $Type == 'student'){
 
-	$sql = "INSERT INTO StudentAttendees (ID, FirstName,LastName,RoomNumber) VALUES ('$ID', '$Fname', '$Lname', '3')";
+	$sql = "INSERT INTO StudentAttendees (ID, RoomNumber) VALUES ('$ID', '3')";
 	$stmt = $pdo->prepare($sql);   #create the query
 	$stmt->execute([$ID]);   #bind the parameters
 
@@ -61,9 +61,10 @@ while ($row = $stmt->fetch()) {
 
 
 echo "</table><br>";
-echo "<table><tr><th>Identification</th><th>First name</th><th>Last name</th><th>Room Number</th></tr>";
+echo "<p>Here lists all the student attendees and their information, including the added attendee:</p><br>";
+echo "<table><tr><th>Identification</th><th>First Name</th><th>Last Name</th><th>Room Number</th></tr>";
 
-$sql = "SELECT ID, FirstName,LastName,RoomNumber from StudentAttendees ";
+$sql = "SELECT Attendees.ID, FirstName, LastName, RoomNumber from StudentAttendees, Attendees where Attendees.ID = StudentAttendees.ID ";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
