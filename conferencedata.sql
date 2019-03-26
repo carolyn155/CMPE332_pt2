@@ -44,9 +44,10 @@ insert into Attendees values ('37', 'Matt', 'LeBlanc', 'Sponsor');
 
 insert into RoomingArrangements values ('2', '', '2');
 insert into RoomingArrangements values ('3', '', '1');
+insert into RoomingArrangements values ('4', '', '2');
+insert into RoomingArrangements values ('5', '', '1');
 
 insert into StudentAttendees values ('20', 'Cache', 'Angus', '2');
-insert into StudentAttendees values ('25', 'Miley', 'Cyrus', '2');
 insert into StudentAttendees values ('26', 'Justin', 'Timberlake', '2');
 insert into StudentAttendees values ('27', 'Kanye', 'West', '3');
 insert into StudentAttendees values ('28', 'Kimberley', 'Kardashian', '3');
