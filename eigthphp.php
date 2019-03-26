@@ -30,11 +30,6 @@ $stmt->execute([$ID]);   #bind the parameters
 
 
 
-// $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-// $sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'student'";
-// $stmt = $pdo->prepare($sql);   #create the query
-// $stmt->execute();   #bind the parameters
-
 $sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees ";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
@@ -43,6 +38,7 @@ while ($row = $stmt->fetch()) {
 	echo "<tr><td>".$row["ID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["AttendeeType"]."</td></tr>";
 }
 
+echo "</table><br>";
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
@@ -53,14 +49,6 @@ while ($row = $stmt->fetch()) {
 	$stmt = $pdo->prepare($sql);   #create the query
 	$stmt->execute([$ID]);   #bind the parameters
 
-
-// $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-// $sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'student'";
-// $stmt = $pdo->prepare($sql);   #create the query
-// $stmt->execute();   #bind the parameters
-
-
-echo "</table><br>";
 echo "<p>Here lists all the student attendees and their information, including the added attendee:</p><br>";
 echo "<table><tr><th>Identification</th><th>First Name</th><th>Last Name</th><th>Room Number</th></tr>";
 

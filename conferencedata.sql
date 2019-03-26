@@ -107,10 +107,14 @@ insert into OnCommittee values ('4', 'Logistics');
 
 -- to update the room capacity from the number of students staying in one room show in StudentAttendees
 update RoomingArrangements 
-set RoomingArrangements.RoomCapacity = (select count(ID) roomcap 
+set RoomingArrangements.RoomCapacity = (select (count(ID) roomcap 
                                         from StudentAttendees 
                                         where StudentAttendees.RoomNumber = RoomingArrangements.RoomNumber 
                                         group by RoomNumber);
+update RoomingArrangements 
+set RoomCapacity = 0
+where isnull(RoomCapacity);
+
 
 -- to update the number of committees an individual committee member is apart of 
 update CommitteeMember
