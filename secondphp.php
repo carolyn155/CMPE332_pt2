@@ -18,7 +18,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select FirstName, LastName from StudentAttendees where RoomNumber = ?";
+$sql = "select FirstName, LastName from StudentAttendees, Attendees where StudentAttendees.ID = attendees.ID and RoomNumber = ?";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$roomno]);   #bind the parameters
 
