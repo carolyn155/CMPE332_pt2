@@ -2,19 +2,39 @@
 <html>
 <head>
 <link href="./style.css" type="text/css" rel="stylesheet" >
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<img class='image-responsive' src='./data.jpg' alt='Group 17' style='height: 300px; width:100%;
+'/>
 </head>
 
-<body>
-<h1>CMPE 332 Assignment</h1>
-<h2>Conference Organization</h2>
-<h3>By: Carolyn Day, Cache Angus & Ted Munn</h3>
-<p>Hello there! Welcome to the conference database!</p>
-<p>Please find the conference data below.</p>
+
+<body id='page'>
+    <div class='container'></div>
+    <main role="main">
+<section class="jumbotron text-center"> 
+    <div class="container">
+        <h1 class="jumbotron-heading">CMPE 332 Assignment: Conference Organization</h1>
+        <h2> <small>
+                By: Carolyn Day, Cache Angus & Ted Munn </small></h2>
+            <p>Hello there! Welcome to the conference database!</p>
+                <p>Please find the conference data below.</p>
+    </div>
+ </section>   
+    
+ 
+</main>
+
+
+
+
 <br>
 <br>
 
+<div class="container"> 
+<div class="row">
+<div class="col-md-6 py-5 text-center">
 <h3>Query 1: Sub-Committee Members</h3>
 <p>Display all members of an organizing sub-committee.</p>
 <form action="./firstphp.php" method="post">
@@ -28,7 +48,8 @@
 <input type="submit">
 </form>
 <br>
-
+</div>
+<div class="col-md-6 py-5 text-center">
 <h3>Query 2: Hotel Room</h3>
 <p>List all of the students housed in the selected room.</p>
 <form action="./secondphp.php" method="post">
@@ -40,7 +61,10 @@
 <input type="submit">
 </form>
 <br>
-
+</div>
+</div>
+<div class="row">
+        <div class="col-md-6 py-5 text-center">
 <h3>Query 3: Conference Schedule</h3>
 <p>Display the conference schedule for a particular day.</p>
 <form action="./thirdphp.php" method="post">
@@ -52,13 +76,17 @@
 <input type="submit">
 </form>
 <br>
-
+</div>
+<div class="col-md-6 py-5 text-center">
 <h3>Query 4: Sponsors</h3>
 <p>List all the sponsors and their level of sponsorship.</p>
 <a href="./fourthphp.php">Click Me for Query 4</a>
 <br>
 <br>
-
+</div>
+</div>
+<div class="row">
+        <div class="col-md-6 py-5 text-center">
 <h3>Query 5: Jobs Availible by Company</h3>
 <p>For a particular company, list the jobs that they have availible.</p>
 <form action="./fifthphp.php" method="post">
@@ -72,28 +100,37 @@
 <input type="submit">
 </form>
 <br>
-
+</div>
+<div class="col-md-6 py-5 text-center">
 <h3>Query 6: All Jobs Availible</h3>
 <p>List all jobs availible.</p>
 <a href="./sixthphp.php">Click Me for Query 6</a>
 <br>
 <br>
-
+</div>
+</div>
+<div class="row">
+        <div class="col-md-6 py-5 text-center">
 <h3>Query 7: Conference Attendees</h3>
 <p>Show the list of conference attendees as 3 lists: students, professionals, sponsors.</p>
 <a href="./seventhphp.php">Click Me for Query 7</a>
 <br>
 <br>
-
+</div>
+<div class="col-md-6 py-5 text-center">
 <h3>Query 8: Add Attendee</h3>
 <p>Add a new attendee. If the attendee is a student, add them to a hotel room.</p>
 <br>
-
+</div>
+</div>
+<div class="row">
+        <div class="col-md-6 py-5 text-center">
 <h3>Query 9: Total Intake</h3>
 <p>Show the total intake of the conference broken down by total registration amounts and total sponsorship amounts.</p>
 <a href="./ninethphp.php">Click for Query</a>
 <br>
-
+</div>
+<div class="col-md-6 py-5 text-center">
 <h3>Query 10: Add Sponsoring Company</h3>
 <p>Add a new sponsoring company.</p>
 <form action="tenthphp.php" method="post">
@@ -115,7 +152,10 @@
     <input type="submit">
     </form> 
 <br>
-
+</div>
+</div>
+<div class="row">
+        <div class="col-md-6 py-5 text-center">
 <h3>Query 11: Delete Sponsoring Company</h3>
 <p>Delete a sponsoring comany and its associated attendees.</p>
 <form action='./eleventhphp.php' method='post'>
@@ -129,7 +169,8 @@
     <input type="submit">
 </form>
 <br>
-
+</div>
+<div class="col-md-6 py-5 text-center">
 <h3>Query 12: Switch Session Information</h3>
 <p>Switch a session's day/time and/or location.</p>
 <form action='./twelthphp.php' method='post'>
@@ -170,7 +211,11 @@
 <input type="submit">
 </form>
 <br>
-
-
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
