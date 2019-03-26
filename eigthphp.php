@@ -24,24 +24,40 @@ echo "<table><tr><th>Identification</th><th>First name</th><th>Last name</th><th
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "INSERT INTO Attendees (ID, FirstName,LastName,AttendeeType) VALUES ($ID, $Fname, $Lname, $Type)";
+$sql = "INSERT INTO Attendees (ID, FirstName,LastName,AttendeeType) VALUES ('$ID', '$Fname', '$Lname', 'Student')";
 $stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute();   #bind the parameters
+$stmt->execute([$Type]);   #bind the parameters
+
+$sql = "INSERT INTO StudentAttendees (ID, FirstName,LastName,RoomNumber) VALUES ('$ID', '$Fname', '$Lname', '3')";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([$Type]);   #bind the parameters
 
 // $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
 // $sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'student'";
 // $stmt = $pdo->prepare($sql);   #create the query
 // $stmt->execute();   #bind the parameters
 
-$sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'student'";
+$sql = "SELECT ID, FirstName,LastName,AttendeeType from Attendees  where AttendeeType = 'Student'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
 while ($row = $stmt->fetch()) {
 	echo "<tr><td>".$row["ID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["AttendeeType"]."</td></tr>";
 }
+
+echo "</table><br>";
+echo "<table><tr><th>Identification</th><th>First name</th><th>Last name</th><th>Room Number</th></tr>";
+
+$sql = "SELECT ID, FirstName,LastName,RoomNumber from StudentAttendees ";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute();   #bind the parameters
+
+while ($row = $stmt->fetch()) {
+	echo "<tr><td>".$row["ID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["RoomNumber"]."</td></tr>";
+}
+#stmt contains the result of the program execution
+#use fetch to get results row by row.
+
 }
 # end of stuff
 
