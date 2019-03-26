@@ -54,3 +54,12 @@ body {
     height:300px;
 }
 
+.firsthome {
+  background-image: url("./data2.jpg");
+  background-color: rgb(38, 59, 128);
+  height: 100%;
+  background-position: bottom; /*bottom- center */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
