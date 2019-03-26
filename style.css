@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+
 table, th, td {
     border: 1px solid black;
     font-family: 'Playfair Display', serif;
@@ -16,7 +18,7 @@ h3 {
     font-family: 'Playfair Display', serif;
 }
 
-h4 {
+h4 { 
     font-family: 'Playfair Display', serif;
 }
 
@@ -39,9 +41,7 @@ input {
 body {
     background-color: aliceblue;
 }
-#image{
-    height:300px;
-}
+
 .quer-col{
     padding-bottom: 30px;
 }
@@ -56,7 +56,7 @@ body {
 
 .firsthome {
   background-image: url("./data2.jpg");
-  background-color: rgb(38, 59, 128);
+  background-color: #00B6B9;
   height: 100%;
   background-position: bottom; /*bottom- center */
   background-repeat: no-repeat;
