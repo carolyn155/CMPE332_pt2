@@ -13,25 +13,26 @@
 <?php
 $sponsor = $_POST["CompanyName"];
 echo "<h3>You have selected the $sponsor to be deleted.</h3>";
-echo "Here is the updated list of companies:";
+echo "<p>Here is the updated list of companies:</p>";
+echo "<br>";
 echo "<table><tr><th>Companies</th></tr>";
 
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "delete from sponsors where companyname = ?";
+$sql = "delete from Sponsors where CompanyName = ?";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$sponsor]);   #bind the parameters
 
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
-$sql = "select companyname from sponsors";
+$sql = "select CompanyName from Sponsors";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([]);
 
 while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["companyname"]."</td></tr>";
+	echo "<tr><td>".$row["CompanyName"]."</td></tr>";
 }
 
 ?>

@@ -52,10 +52,7 @@ CREATE TABLE ProfessionalAttendees (
 -- Speakers are attendees of conference 
 CREATE TABLE SpeakerAttendees (
     ID int NOT NULL, -- PK
-    FirstName varchar(20) NOT NULL,
-    LastName varchar(20) NOT NULL,
     SessionSpeakingAt varchar(20) NOT NULL,    
-    PRIMARY KEY (FirstName, LastName),
     FOREIGN KEY (ID) REFERENCES Attendees(ID)
 );
 
@@ -88,14 +85,11 @@ CREATE TABLE Sponsors (
     FOREIGN KEY (SponsorLevel) REFERENCES SponsorLevels(SponsorLevel) on delete cascade
 );
 -- I don't think we need this bc we have the Sponsors already attached as an attendee type
--- CREATE TABLE SponsorAttendees (
---     ID int NOT NULL, -- PK
---     FirstName varchar(20) NOT NULL,
---     LastName varchar(20) NOT NULL,
---     Company varchar(20) NOT NULL,
---     PRIMARY KEY (FirstName, LastName),
---     FOREIGN KEY (Company) REFERENCES Sponsors(CompanyName)
--- ); 
+CREATE TABLE SponsorAttendees (
+    ID int NOT NULL, -- PK
+    Company varchar(20) NOT NULL,
+    FOREIGN KEY (Company) REFERENCES Sponsors(CompanyName) ON DELETE CASCADE
+); 
 
 -- speaker speaks at a session 
 CREATE TABLE ScheduleInformation (
