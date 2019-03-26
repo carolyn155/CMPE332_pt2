@@ -142,3 +142,5 @@ CREATE TABLE OnCommittee (
     FOREIGN KEY (SubCommitteeName) REFERENCES OrganizingCommittee(SubCommitteeName),
     FOREIGN KEY (MemberID) REFERENCES CommitteeMember(MemberID)
 );
+
+
