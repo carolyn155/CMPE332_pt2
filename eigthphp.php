@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="https://use.typekit.net/yom8ypy.css">
 </head>
 <body>
-<h2>Query 6: List all jobs available.</h2>
+<h2>Query 8: add a new attendee.  If the attendee is a student, add them to a hotel room.</h2>
 
-
+<!-- beginning of stuff -->
 <?php
-echo "<h3>You have asked to see information on the available jobs.</h3>";
+echo "<h3>You have asked to add a new attendee.</h3>";
 echo "<p>Here lists the details available jobs.</p>";
 echo "<br>";
 echo "<table><tr><th>Company Name</th><th>Job Title</th><th>Pay Rate Per Year</th><th>City</th><th>Province</th></tr>";
@@ -26,6 +26,7 @@ $stmt->execute();   #bind the parameters
 while ($row = $stmt->fetch()) {
 	echo "<tr><td>".$row["CompanyName"]."</td><td>".$row["JobTitle"]."</td><td>".$row["PayRatePerYear"]."</td><td>".$row["City"]."</td><td>".$row["Province"]."</td></tr>";
 }
+# end of stuff
 
 ?>
 </table>
