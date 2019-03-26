@@ -61,15 +61,16 @@ insert into ProfessionalAttendees values ('32', 'George', 'Michael', 'World Lead
 insert into SpeakerAttendees values ('22', 'QGIC');
 insert into SpeakerAttendees values ('24', 'Ghosts');
 
-insert into JobPostings values ('Buzzfeed Unsolved', 'Video Producer', '20000', 'Los Angeles', 'California');
-insert into JobPostings values ('Netflix', 'Senior Developer', '100000', 'San Francisco', 'California');
-insert into JobPostings values ('Uber', 'CEO', '2000000', 'New York City', 'New York');
-insert into JobPostings values ('Amazon', 'Human Resources', '50000', 'Toronto', 'Ontario');
+insert into Sponsors values ('BuzzFeed Unsolved', 'Gold', '2');
+insert into Sponsors values ('Netflix', 'Silver', '3');
+insert into Sponsors values ('Uber', 'Platinum', '5');
+insert into Sponsors values ('Amazon', 'Bronze', '0');
 
-insert into Sponsors values ('BuzzFeed Unsolved', 'Gold', 'Video Producer', '2');
-insert into Sponsors values ('Netflix', 'Silver', 'Senior Developer', '3');
-insert into Sponsors values ('Uber', 'Platinum', 'CEO', '5');
-insert into Sponsors values ('Amazon', 'Bronze', 'Human Resources', '0');
+insert into JobPostings values ('Video Producer', 'Buzzfeed Unsolved', '20000', 'Los Angeles', 'California');
+insert into JobPostings values ('Senior Developer', 'Netflix', '100000', 'San Francisco', 'California');
+insert into JobPostings values ('CEO', 'Uber', '2000000', 'New York City', 'New York');
+insert into JobPostings values ('Human Resources', 'Amazon', '50000', 'Toronto', 'Ontario');
+insert into JobPostings values ('Driver', 'Uber', '20000', 'New York City', 'New York');
 
 
 insert into SponsorAttendees values ('23', 'BuzzFeed Unsolved');
@@ -107,7 +108,7 @@ insert into OnCommittee values ('4', 'Logistics');
 
 -- to update the room capacity from the number of students staying in one room show in StudentAttendees
 update RoomingArrangements 
-set RoomingArrangements.RoomCapacity = (select (count(ID) roomcap 
+set RoomingArrangements.RoomCapacity = (select count(ID) 
                                         from StudentAttendees 
                                         where StudentAttendees.RoomNumber = RoomingArrangements.RoomNumber 
                                         group by RoomNumber);

@@ -12,11 +12,10 @@
 <?php
 $name = $_POST["CompanyName"];                      
 $level = $_POST["SponsorLevel"];
-$job = $_POST["JobPosting"];
 echo "<h3>You have entered $name as a new sponsoring company.</h3>";
 echo "<p>Here is the new tuple in the database for $name.</p>";
 echo "<br>";
-echo "<table><tr><th>Company Name</th><th>Sponsor Level</th><th>Job Posting</th><th>Number of Emails Sent</th></tr>";
+echo "<table><tr><th>Company Name</th><th>Sponsor Level</th><th>Number of Emails Sent</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
