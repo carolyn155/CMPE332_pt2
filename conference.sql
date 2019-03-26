@@ -66,12 +66,13 @@ CREATE TABLE SponsorLevels (
 
 -- sponsors are allowed to have job postings 
 CREATE TABLE JobPostings (      -- for sponsors to post ads for jobs 
-    CompanyName varchar(20),
     JobTitle varchar(20) NOT NULL, -- PK
+    CompanyName varchar(20),
     PayRatePerYear varchar(20),
     City varchar(20),
     Province varchar(20), 
-    PRIMARY KEY (JobTitle)
+    PRIMARY KEY (JobTitle),
+    FOREIGN KEY (CompanyName) REFERENCES Sponsors(CompanyName),
 );
 
 -- Companies can sponsor the conference 
@@ -84,6 +85,7 @@ CREATE TABLE Sponsors (
     FOREIGN KEY (JobPosting) REFERENCES JobPostings(JobTitle),
     FOREIGN KEY (SponsorLevel) REFERENCES SponsorLevels(SponsorLevel) on delete cascade
 );
+
 -- I don't think we need this bc we have the Sponsors already attached as an attendee type
 CREATE TABLE SponsorAttendees (
     ID int NOT NULL, -- PK

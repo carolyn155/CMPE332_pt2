@@ -20,6 +20,8 @@ echo "<table><tr><th>Company Name</th><th>Sponsor Level</th><th>Job Posting</th>
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
+
+
 $sql1 = "insert into Sponsors(CompanyName, SponsorLevel, EmailsSent) values ('$name', '$level', '0')";
 $stmt = $pdo->prepare($sql1);   #create the query
 $stmt->execute([$name]);   #bind the parameters
@@ -32,7 +34,7 @@ $stmt->execute();   #bind the parameters
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
 while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["CompanyName"]."</td><td>".$row["SponsorLevel"]."</td><td>".$row["JobPosting"]."</td><td>".$row["EmailsSent"]."</td></tr>";
+	echo "<tr><td>".$row["CompanyName"]."</td><td>".$row["SponsorLevel"]."</td><td>".$row["EmailsSent"]."</td></tr>";
 }
 
 ?>
