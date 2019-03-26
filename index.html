@@ -97,6 +97,24 @@
 
 <h3>Query 10: Add Sponsoring Company</h3>
 <p>Add a new sponsoring company.</p>
+<form action="tenthphp.php" method="post">
+    <p>Company Name:</p>
+    <input type="text" name="CompanyName">
+    <br>
+    <p>Sponsor Level:</p>
+    <input list="level" name="SponsorLevel">
+    <datalist id="level">
+        <option value="Platinum">
+        <option value="Gold">
+        <option value="Silver">
+        <option value="Bronze">
+    </datalist>    
+    <br>
+    <p>Job Posting:</p>
+    <input type="text" name="JobPosting">
+    <br><br>
+    <input type="submit">
+    </form> 
 <br>
 
 <h3>Query 11: Delete Sponsoring Company</h3>
