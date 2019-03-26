@@ -34,10 +34,7 @@ CREATE TABLE RoomingArrangements (
 -- attendees that are students 
 CREATE TABLE StudentAttendees (
     ID int NOT NULL, -- FK
-    FirstName varchar(20) NOT NULL, -- PK
-    LastName varchar(20) NOT NULL, -- PK
     RoomNumber int, -- FK
-    PRIMARY KEY (FirstName, LastName), 
     FOREIGN KEY (RoomNumber) REFERENCES RoomingArrangements(RoomNumber) ON DELETE SET NULL,
     FOREIGN KEY (ID) REFERENCES Attendees(ID) ON DELETE CASCADE
 );

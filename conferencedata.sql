@@ -47,10 +47,10 @@ insert into RoomingArrangements values ('3', '', '1');
 insert into RoomingArrangements values ('4', '', '2');
 insert into RoomingArrangements values ('5', '', '1');
 
-insert into StudentAttendees values ('20', 'Cache', 'Angus', '2');
-insert into StudentAttendees values ('26', 'Justin', 'Timberlake', '2');
-insert into StudentAttendees values ('27', 'Kanye', 'West', '3');
-insert into StudentAttendees values ('28', 'Kimberley', 'Kardashian', '3');
+insert into StudentAttendees values ('20', '2');
+insert into StudentAttendees values ('26', '2');
+insert into StudentAttendees values ('27', '3');
+insert into StudentAttendees values ('28', '3');
 
 insert into ProfessionalAttendees values ('21', 'Carolyn', 'Day', 'Computers');
 insert into ProfessionalAttendees values ('29', 'Chris', 'Martin', 'Entertainment');
@@ -105,11 +105,10 @@ set RoomingArrangements.RoomCapacity = (select count(ID) roomcap
                                         group by RoomNumber);
 
 -- to update the number of committees an individual committee member is apart of 
--- update CommitteeMember
-set CommitteeMember.NumberOfCommittees = (select count(MemberID) num
+update CommitteeMember
+set CommitteeMember.NumberOfCommittees = (select count(CommitteeMember.MemberID) num
                                         from OnCommittee
                                         where CommitteeMember.MemberID = OnCommittee.MemberID
-                                        group by MemberID);
-
+                                        group by OnCommittee.MemberID);
 
 
