@@ -65,6 +65,9 @@
 <input list="job" name="CompanyName">
 <datalist id="job">
     <option value="Buzzfeed Unsolved">
+    <option value="Amazon">
+    <option value="Netflix">
+    <option value="Uber">
 </datalist>
 <input type="submit">
 </form>
@@ -87,8 +90,7 @@
 
 <h3>Query 9: Total Intake</h3>
 <p>Show the total intake of the conference broken down by total registration amounts and total sponsorship amounts.</p>
-<h4>Total Registration Amounts</h4>
-<h4>Total Sponsorship Amounts</h4>
+<a href="./ninethphp.php">Click for Query</a>
 <br>
 
 <h3>Query 10: Add Sponsoring Company</h3>
@@ -98,15 +100,26 @@
 <h3>Query 11: Delete Sponsoring Company</h3>
 <p>Delete a sponsoring comany and its associated attendees.</p>
 <form action='./eleventhphp.php' method='post'>
-    <input list='sponsors' name="Sponsor">
+    <input list='sponsors' name="CompanyName">
     <datalist id='sponsors'>
         <option value="Buzzfeed Unsolved">
+        <option value="Amazon">
+        <option value="Netflix">
+        <option value="Uber">
     </datalist>
     <input type="submit">
 </form>
 
 <h3>Query 12: Switch Session Information</h3>
 <p>Switch a session's day/time and/or location.</p>
+<form action='./twelthphp.php' method='post'>
+<input list="sessions" name='SessionName'>
+<datalist id='sessions'>
+        <option value="QGIC">
+        <option value="Ghosts">
+</datalist>
+<input type="submit">
+</form>
 <br>
 
 
