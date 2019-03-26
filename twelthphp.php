@@ -15,11 +15,12 @@ $session = $_POST["SessionName"];
 $start = $_POST["StartTime"];
 $end = $_POST["EndTime"];
 $location = $_POST["RoomLocation"];
+$day = $_POST["SessionDay"];
 
 echo "<p> You have altered the session $session.";
 echo "<p>Here is the new schedule:</p>";
 echo "<br>";
-echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th></tr>";
+echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th><th>Session Day</td></tr>";
 
 if($start && $end && !$location ){
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
@@ -33,18 +34,18 @@ $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$session]);  
 }else {
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "update scheduleinformation set starttime = '$start', endtime='$end', roomlocation='$location' where sessionname= '$session'";
+$sql = "update scheduleinformation set starttime = '$start', endtime='$end', roomlocation='$location', sessionday='$day' where sessionname= '$session'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$session]);  
 
 }
 
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select sessionname, starttime, endtime, roomlocation from scheduleinformation";
+$sql = "select sessionname, starttime, endtime, roomlocation, sessionday from scheduleinformation";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([]);   #bind the parameters
 while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["sessionname"]."</td><td>".$row["starttime"]."</td><td>".$row["endtime"]."</td><td>".$row["roomlocation"]."</td></tr>";
+	echo "<tr><td>".$row["sessionname"]."</td><td>".$row["starttime"]."</td><td>".$row["endtime"]."</td><td>".$row["roomlocation"]."</td><td>".$row["sessionday"]."</td></tr>";
 }
 
 
