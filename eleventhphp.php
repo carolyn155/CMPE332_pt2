@@ -11,19 +11,28 @@
 <!--delete a sponsoring company and it's associated attendees-->
 
 <?php
-$sponsor = $_POST["Sponsor"];
+$sponsor = $_POST["CompanyName"];
 echo "<h3>You have selected the $sponsor to be deleted.</h3>";
+echo "Here is the updated list of companies:";
+echo "<table><tr><th>Companies</th></tr>";
 
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "delete from sponsors where compnayname = ?";
+$sql = "delete from sponsors where companyname = ?";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$sponsor]);   #bind the parameters
 
+
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
+$sql = "select companyname from sponsors";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([]);
 
+while ($row = $stmt->fetch()) {
+	echo "<tr><td>".$row["companyname"]."</td></tr>";
+}
 
 ?>
 </table>

@@ -11,23 +11,46 @@
 <!--switch a session's day/time and/or location.-->
 
 <?php
-$committee = $_POST["subcommitteename"];
-echo "<h3>You have selected the $committee sub-committee.</h3>";
-echo "<p>Here is a list of all the names of the committee members:</p>";
+$session = $_POST["SessionName"];
+$start = $_POST["StartTime"];
+$end = $_POST["EndTime"];
+$location = $_POST["RoomLocation"];
+
+echo "<p> You have altered the session $session.";
+echo "<p>Here is the new schedule:</p>";
 echo "<br>";
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th></tr>";
+
+if($start && $end && !$location ){
+$pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
+$sql = "update scheduleinformation set starttime = '$start', endtime='$end' where sessionname=?";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([$session]);   #bind the parameters
+} elseif($location && !$start){
+$pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
+$sql = "update scheduleinformation set roomlocation='$location where sessionname=?";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([$session]);  
+}else {
+$pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
+$sql = "update scheduleinformation set starttime = '$start', endtime='$end', roomlocation='$location' where sessionname= '$session'";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([$session]);  
+
+}
+
+$pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
+$sql = "select sessionname, starttime, endtime, roomlocation from scheduleinformation";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([]);   #bind the parameters
+while ($row = $stmt->fetch()) {
+	echo "<tr><td>".$row["sessionname"]."</td><td>".$row["starttime"]."</td><td>".$row["endtime"]."</td><td>".$row["roomlocation"]."</td></tr>";
+}
+
+
 
 #connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conferencedb', "root", "");
-$sql = "select firstname, lastname from committeemember where subcommitteename = ?";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([$committee]);   #bind the parameters
 
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["firstname"]."</td><td>".$row["lastname"]."</td></tr>";
-}
 
 ?>
 </table>
