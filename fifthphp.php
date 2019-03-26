@@ -30,5 +30,8 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
+<br>
+<br>
+<button onclick="window.location.href = './index.html';">Back to home</button>
 </body>
 </html> 
