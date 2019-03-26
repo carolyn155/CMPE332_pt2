@@ -12,7 +12,7 @@
 
 <body id='page'>
 
-<section class="jumbotron text-center" > 
+<section class="jumbotron text-center" >
     <div class="container">
         <h1 class="jumbotron-heading">CMPE 332 Assignment: Conference Organization</h1>
         <h2> <small>
@@ -22,10 +22,10 @@
                 <br>
 
     </div>
-</section>   
+</section>
 
 
-<div class="container"> 
+<div class="container">
 <div class="row">
 <div class="col-md-6 py-5 text-center">
 <h3>Query 1: Sub-Committee Members</h3>
@@ -113,6 +113,17 @@
 <div class="col-md-6 py-5 text-center">
 <h3>Query 8: Add Attendee</h3>
 <p>Add a new attendee. If the attendee is a student, add them to a hotel room.</p>
+<form action="./eigthphp.php" method="post">
+<p>ID:</p>
+<input type="identification" name="ID">
+<p>First Name:</p>
+<input type="First name" name="FirstName">
+<p>Last Name:</p>
+<input type="Last name" name="LastName">
+<p>Attendee Type:</p>
+<input type="Attendee type" name="AttendeeType">
+<input type="submit">
+</form>
 <br>
 </div>
 </div>
@@ -137,13 +148,13 @@
         <option value="Gold">
         <option value="Silver">
         <option value="Bronze">
-    </datalist>    
+    </datalist>
     <br>
     <p>Job Posting:</p>
     <input type="text" name="JobPosting">
     <br><br>
     <input type="submit">
-    </form> 
+    </form>
 <br>
 </div>
 </div>
@@ -187,7 +198,7 @@
 <input type="text" name="EndTime">
 <br/>
 </col>
-</row> 
+</row>
 <row>
 <p>Room Location</p>
 <input list='room' name='RoomLocation'>
