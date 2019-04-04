@@ -52,11 +52,11 @@ insert into StudentAttendees values ('26', '2');
 insert into StudentAttendees values ('27', '3');
 insert into StudentAttendees values ('28', '3');
 
-insert into ProfessionalAttendees values ('21', 'Carolyn', 'Day', 'Computers');
-insert into ProfessionalAttendees values ('29', 'Chris', 'Martin', 'Entertainment');
-insert into ProfessionalAttendees values ('30', 'Shia', 'LaBeouf', 'Actor');
-insert into ProfessionalAttendees values ('31', 'Rick', 'Astley', 'CEO');
-insert into ProfessionalAttendees values ('32', 'George', 'Michael', 'World Leader');
+insert into ProfessionalAttendees values ('21', 'Computers');
+insert into ProfessionalAttendees values ('29', 'Entertainment');
+insert into ProfessionalAttendees values ('30', 'Actor');
+insert into ProfessionalAttendees values ('31', 'CEO');
+insert into ProfessionalAttendees values ('32', 'World Leader');
 
 insert into SpeakerAttendees values ('22', 'QGIC');
 insert into SpeakerAttendees values ('24', 'Ghosts');

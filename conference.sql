@@ -42,10 +42,7 @@ CREATE TABLE StudentAttendees (
 -- Professionals are attendees of conference 
 CREATE TABLE ProfessionalAttendees (
     ID int NOT NULL, -- FK
-    FirstName varchar(20),
-    LastName varchar(20),
-    Industry varchar(20), -- added info for fun 
-    PRIMARY KEY (FirstName, LastName), 
+    Industry varchar(20), -- added info for fun  
     FOREIGN KEY (ID) REFERENCES Attendees(ID)
 );
 
