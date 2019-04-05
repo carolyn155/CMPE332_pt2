@@ -23,12 +23,10 @@ CREATE TABLE Attendees (
 
 -- students may decided to stay in a room 
 CREATE TABLE RoomingArrangements (
-    -- StudentID int NOT NULL, -- multi value
     RoomNumber int NOT NULL, -- PK
     RoomCapacity int, -- 1 to 3 
     NumberOfBeds int NOT NULL, -- 1 or 2 
     PRIMARY KEY (RoomNumber)
-   -- FOREIGN KEY (StudentID) REFERENCES ATTENDEES(ID) ON DELETE CASCADE
 );
 
 -- attendees that are students 
@@ -46,13 +44,6 @@ CREATE TABLE ProfessionalAttendees (
     FOREIGN KEY (ID) REFERENCES Attendees(ID)
 );
 
--- Speakers are attendees of conference 
-CREATE TABLE SpeakerAttendees (
-    ID int NOT NULL, -- PK
-    SessionSpeakingAt varchar(20) NOT NULL,    
-    FOREIGN KEY (ID) REFERENCES Attendees(ID)
-);
-
 -- Sponsors will have a sponsor level, ranking their sponsorship
 CREATE TABLE SponsorLevels (
     SponsorLevel varchar(20) NOT NULL, 
@@ -61,16 +52,12 @@ CREATE TABLE SponsorLevels (
     PRIMARY KEY (SponsorLevel)
 );
 
-
-
 -- Companies can sponsor the conference 
 CREATE TABLE Sponsors (
     CompanyName varchar(20) NOT NULL, -- PK
     SponsorLevel varchar(20), -- referenced from sponsor levels
-    -- JobPosting varchar(20), -- multivalued
     EmailsSent int, -- derived from job postings to keep track of number of emails sent
     PRIMARY KEY (CompanyName),
-    -- FOREIGN KEY (JobPosting) REFERENCES JobPostings(JobTitle),
     FOREIGN KEY (SponsorLevel) REFERENCES SponsorLevels(SponsorLevel) ON DELETE CASCADE
 );
 
@@ -86,8 +73,6 @@ CREATE TABLE JobPostings (      -- for sponsors to post ads for jobs
 );
 
 
-
--- I don't think we need this bc we have the Sponsors already attached as an attendee type
 CREATE TABLE SponsorAttendees (
     ID int NOT NULL, -- PK
     Company varchar(20) NOT NULL,
@@ -97,21 +82,20 @@ CREATE TABLE SponsorAttendees (
 -- speaker speaks at a session 
 CREATE TABLE ScheduleInformation (
     SessionName varchar(20) NOT NULL,
-    SpeakerID int NOT NULL, -- muti values 
     StartTime time,
     EndTime time,
     RoomLocation varchar(20), 
     SessionDay date, 
-    PRIMARY KEY (StartTime, RoomLocation),
-    FOREIGN KEY (SpeakerID) REFERENCES Attendees (ID) ON DELETE CASCADE
+    PRIMARY KEY (SessionName)
 );
 
--- CREATE TABLE SpeakerAttendees (
---     SpeakerID int NOT NULL,
---     SessionName varchar(20) NOT NULL,
---     PRIMARY KEY (SpeakerID),
---     FOREIGN KEY (SpeakerID) REFERENCES Attendee (ID) ON DELETE CASCADE
--- );
+-- Speakers are attendees of conference 
+CREATE TABLE SpeakerAttendees (
+    ID int NOT NULL, -- PK
+    SessionSpeakingAt varchar(20) NOT NULL,    
+    FOREIGN KEY (ID) REFERENCES Attendees(ID),
+    FOREIGN KEY (SessionSpeakingAt) REFERENCES ScheduleInformation(SessionName)
+);
 
 CREATE TABLE OrganizingCommittee (
     SubCommitteeName varchar(20) NOT NULL,

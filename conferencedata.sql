@@ -58,9 +58,6 @@ insert into ProfessionalAttendees values ('30', 'Actor');
 insert into ProfessionalAttendees values ('31', 'CEO');
 insert into ProfessionalAttendees values ('32', 'World Leader');
 
-insert into SpeakerAttendees values ('22', 'QGIC');
-insert into SpeakerAttendees values ('24', 'Ghosts');
-
 insert into Sponsors values ('BuzzFeed Unsolved', 'Gold', '2');
 insert into Sponsors values ('Netflix', 'Silver', '3');
 insert into Sponsors values ('Uber', 'Platinum', '5');
@@ -80,8 +77,11 @@ insert into SponsorAttendees values ('35', 'Amazon');
 insert into SponsorAttendees values ('36', 'Netflix');
 insert into SponsorAttendees values ('37', 'Uber');
 
-insert into ScheduleInformation values ('QGIC', '22', '10:00:00', '11:00:00', '9', '2020-12-24');
-insert into ScheduleInformation values ('Ghosts', '24', '11:00:00', '12:00:00', '13', '2020-12-25');
+insert into ScheduleInformation values ('QGIC', '10:00:00', '11:00:00', '9', '2020-12-24');
+insert into ScheduleInformation values ('Ghosts', '11:00:00', '12:00:00', '13', '2020-12-25');
+
+insert into SpeakerAttendees values ('22', 'QGIC');
+insert into SpeakerAttendees values ('24', 'Ghosts');
 
 insert into OrganizingCommittee values ('Setup','Tom', 'Brady');
 insert into OrganizingCommittee values ('Logistics','Charlie', 'Chaplin');
